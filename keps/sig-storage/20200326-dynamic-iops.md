@@ -157,6 +157,7 @@ demonstrate the interest in a KEP within the wider Kubernetes community.
 
 [experience reports]: https://github.com/golang/go/wiki/ExperienceReports
 -->
+Cloud providers are offering new storage features that allow you to dynamically set the transfer rates to the storage devices without any downtime. These new features allow for users to scale up and scale down their storage performance on demand. Currently, you need to use the cloud providers APIs or UI to change the settings of the storage devices and we would like to surface these to Kubernetes.
 
 ### Goals
 
@@ -164,6 +165,10 @@ demonstrate the interest in a KEP within the wider Kubernetes community.
 List the specific goals of the KEP.  What is it trying to achieve?  How will we
 know that this has succeeded?
 -->
+* Enable access to dynamic storage settings
+* Users can scale up and down their storage that is backing their PVCs
+* Storage providers can continue to innovate on dynamic storage settings and it will be usable by kubernetes users
+
 
 ### Non-Goals
 
@@ -171,6 +176,7 @@ know that this has succeeded?
 What is out of scope for this KEP?  Listing non-goals helps to focus discussion
 and make progress.
 -->
+* Changing existing API calls for creating a PVC. The additional parameters fo setting the dynamic IOPs and MiB/s will be optional, so existing PVC template files do not need to change.
 
 ## Proposal
 
@@ -200,7 +206,7 @@ spec:
   resources:
     requests:
       storage: 14Gi
-      options: “DiskIOPSReadWrite=xxx, DiskMBpsReadWrite=xxx”
+      options: "DiskIOPSReadWrite=xxx, DiskMBpsReadWrite=xxx"
  ```
 
 Option 2:
