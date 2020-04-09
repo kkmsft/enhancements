@@ -157,7 +157,7 @@ demonstrate the interest in a KEP within the wider Kubernetes community.
 
 [experience reports]: https://github.com/golang/go/wiki/ExperienceReports
 -->
-Cloud providers are offering new storage features that allow you to dynamically set the transfer rates to the storage devices without any downtime. These new features allow for users to scale up and scale down their storage performance on demand. Currently, you need to use the cloud providers APIs or UI to change the settings of the storage devices and we would like to surface these to the kubernetes controller to give kubernetes users control over their underlying storage devices for their persistent volume claims.
+Cloud providers are offering new storage features that allow you to dynamically set the transfer rates to the storage devices without any downtime. These new features allow for users to scale up and scale down their storage performance on demand. Currently, you need to use the cloud providers APIs or UI to change the settings of the storage devices and we would like to surface these to Kubernetes.
 
 ### Goals
 
